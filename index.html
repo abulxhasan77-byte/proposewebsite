@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sadaf, Will You Be Mine?</title>
+  <style>
+    body { margin:0; padding:0; font-family:'Poppins',sans-serif; background:#ffe6f2; overflow-x:hidden; }
+    header { text-align:center; padding:60px 20px; background:linear-gradient(135deg,#ffb6c1,#ff69b4); color:white; }
+    header h1 { font-size:3rem; animation:pulse 2s infinite; }
+    @keyframes pulse {0%{transform:scale(1);}50%{transform:scale(1.1);}100%{transform:scale(1);}}
+    .photo-frame{margin-top:20px; display:inline-block; padding:15px; border-radius:20px; background:white; box-shadow:0 0 25px rgba(255,20,147,0.7);} 
+    .photo-frame img{width:250px; border-radius:15px;}
+    .heart-burst{position:fixed;pointer-events:none;top:0;left:0;width:100%;height:100%;overflow:hidden;z-index:999;} 
+    .heart{position:absolute;font-size:30px;animation:burst 1s ease-out forwards;} 
+    @keyframes burst{0%{transform:scale(0.2);opacity:1;}100%{transform:scale(2);opacity:0;}}
+    audio{display:none;}
+    .popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:flex;justify-content:center;align-items:center;visibility:hidden;}
+    .popup-box{background:white;padding:40px;border-radius:20px;font-size:1.5rem;color:#ff1493;box-shadow:0 0 20px rgba(255,20,147,0.5);} 
+    .section{padding:60px 20px; text-align:center; max-width:1100px; margin:auto;} 
+    .love-notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px;} 
+    .note{background:white;padding:20px;border-radius:20px;box-shadow:0 0 15px rgba(255,105,180,0.3);} 
+    .buttons{margin-top:30px;display:flex;justify-content:center;gap:20px;position:relative;} 
+    button{padding:15px 40px;font-size:1.3rem;border:none;border-radius:15px;cursor:pointer;} 
+    #yesBtn{background:#ff1493;color:white;} #noBtn{background:#fff;color:#ff1493;position:absolute;} 
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Komiku/It_s_time_for_adventure/Komiku_-_02_-_The_Beginning.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+  <h1>Sadaf, Will You Be Mine? 💗</h1>
+  <div class="photo-frame">
+    <img src="data:image/jpeg;base64,REPLACE_IMAGE_BASE64" />
+  </div>
+</header>
+
+<section class="section">
+  <h2>Reasons Why You're Special 💞</h2>
+  <div class="love-notes">
+    <div class="note">Your smile makes everything brighter.</div>
+    <div class="note">You make every moment feel magical.</div>
+    <div class="note">You bring warmth wherever you go.</div>
+    <div class="note">Your kindness is beautiful.</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>The Big Question 💗</h2>
+  <p style="font-size:1.3rem;color:#ff1493;">Sadaf, will you be mine forever?</p>
+  <div class="buttons">
+    <button id="yesBtn">Yes 💞</button>
+    <button id="noBtn">No 😢</button>
+  </div>
+</section>
+
+<div class="popup" id="popup">
+  <div class="popup-box">Yay! You said YES 💗</div>
+</div>
+<div class="heart-burst" id="heartBurst"></div>
+
+<script>
+  const noBtn=document.getElementById("noBtn");
+  noBtn.addEventListener("mouseover",()=>{noBtn.style.left=Math.random()*window.innerWidth+"px";noBtn.style.top=Math.random()*window.innerHeight+"px";});
+
+  const yesBtn=document.getElementById("yesBtn");
+  const popup=document.getElementById("popup");
+  const burst=document.getElementById("heartBurst");
+
+  yesBtn.addEventListener("click",()=>{
+    popup.style.visibility="visible";
+    for(let i=0;i<20;i++){
+      const h=document.createElement("div");
+      h.className="heart";
+      h.textContent="💗";
+      h.style.left=Math.random()*window.innerWidth+"px";
+      h.style.top=Math.random()*window.innerHeight+"px";
+      burst.appendChild(h);
+      setTimeout(()=>h.remove(),1000);
+    }
+  });
+</script>
+</body>
+</html>".replace("REPLACE_IMAGE_BASE64
